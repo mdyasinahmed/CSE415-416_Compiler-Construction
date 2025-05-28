@@ -1,32 +1,97 @@
 
-add.o:     file format pe-i386
+add.o:     file format pe-x86-64
 
 
 Disassembly of section .text:
 
-00000000 <_main>:
-   0:	55                   	push   ebp
-   1:	89 e5                	mov    ebp,esp
-   3:	83 e4 f0             	and    esp,0xfffffff0
-   6:	83 ec 20             	sub    esp,0x20
-   9:	e8 00 00 00 00       	call   e <_main+0xe>
-   e:	c7 04 24 00 00 00 00 	mov    DWORD PTR [esp],0x0
-  15:	e8 00 00 00 00       	call   1a <_main+0x1a>
-  1a:	8d 44 24 14          	lea    eax,[esp+0x14]
-  1e:	89 44 24 08          	mov    DWORD PTR [esp+0x8],eax
-  22:	8d 44 24 18          	lea    eax,[esp+0x18]
-  26:	89 44 24 04          	mov    DWORD PTR [esp+0x4],eax
-  2a:	c7 04 24 14 00 00 00 	mov    DWORD PTR [esp],0x14
-  31:	e8 00 00 00 00       	call   36 <_main+0x36>
-  36:	8b 54 24 18          	mov    edx,DWORD PTR [esp+0x18]
-  3a:	8b 44 24 14          	mov    eax,DWORD PTR [esp+0x14]
-  3e:	01 d0                	add    eax,edx
-  40:	89 44 24 1c          	mov    DWORD PTR [esp+0x1c],eax
-  44:	8b 44 24 1c          	mov    eax,DWORD PTR [esp+0x1c]
-  48:	89 44 24 04          	mov    DWORD PTR [esp+0x4],eax
-  4c:	c7 04 24 1a 00 00 00 	mov    DWORD PTR [esp],0x1a
-  53:	e8 00 00 00 00       	call   58 <_main+0x58>
-  58:	b8 00 00 00 00       	mov    eax,0x0
-  5d:	c9                   	leave  
-  5e:	c3                   	ret    
-  5f:	90                   	nop
+0000000000000000 <scanf>:
+   0:	55                   	push   rbp
+   1:	53                   	push   rbx
+   2:	48 83 ec 38          	sub    rsp,0x38
+   6:	48 8d 6c 24 30       	lea    rbp,[rsp+0x30]
+   b:	48 89 4d 20          	mov    QWORD PTR [rbp+0x20],rcx
+   f:	48 89 55 28          	mov    QWORD PTR [rbp+0x28],rdx
+  13:	4c 89 45 30          	mov    QWORD PTR [rbp+0x30],r8
+  17:	4c 89 4d 38          	mov    QWORD PTR [rbp+0x38],r9
+  1b:	48 8d 45 28          	lea    rax,[rbp+0x28]
+  1f:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+  23:	48 8b 5d f0          	mov    rbx,QWORD PTR [rbp-0x10]
+  27:	b9 00 00 00 00       	mov    ecx,0x0
+  2c:	48 8b 05 00 00 00 00 	mov    rax,QWORD PTR [rip+0x0]        # 33 <scanf+0x33>
+  33:	ff d0                	call   rax
+  35:	49 89 d8             	mov    r8,rbx
+  38:	48 8b 55 20          	mov    rdx,QWORD PTR [rbp+0x20]
+  3c:	48 89 c1             	mov    rcx,rax
+  3f:	e8 00 00 00 00       	call   44 <scanf+0x44>
+  44:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  47:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  4a:	48 83 c4 38          	add    rsp,0x38
+  4e:	5b                   	pop    rbx
+  4f:	5d                   	pop    rbp
+  50:	c3                   	ret    
+
+0000000000000051 <printf>:
+  51:	55                   	push   rbp
+  52:	53                   	push   rbx
+  53:	48 83 ec 38          	sub    rsp,0x38
+  57:	48 8d 6c 24 30       	lea    rbp,[rsp+0x30]
+  5c:	48 89 4d 20          	mov    QWORD PTR [rbp+0x20],rcx
+  60:	48 89 55 28          	mov    QWORD PTR [rbp+0x28],rdx
+  64:	4c 89 45 30          	mov    QWORD PTR [rbp+0x30],r8
+  68:	4c 89 4d 38          	mov    QWORD PTR [rbp+0x38],r9
+  6c:	48 8d 45 28          	lea    rax,[rbp+0x28]
+  70:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+  74:	48 8b 5d f0          	mov    rbx,QWORD PTR [rbp-0x10]
+  78:	b9 01 00 00 00       	mov    ecx,0x1
+  7d:	48 8b 05 00 00 00 00 	mov    rax,QWORD PTR [rip+0x0]        # 84 <printf+0x33>
+  84:	ff d0                	call   rax
+  86:	49 89 d8             	mov    r8,rbx
+  89:	48 8b 55 20          	mov    rdx,QWORD PTR [rbp+0x20]
+  8d:	48 89 c1             	mov    rcx,rax
+  90:	e8 00 00 00 00       	call   95 <printf+0x44>
+  95:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  98:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  9b:	48 83 c4 38          	add    rsp,0x38
+  9f:	5b                   	pop    rbx
+  a0:	5d                   	pop    rbp
+  a1:	c3                   	ret    
+
+00000000000000a2 <main>:
+  a2:	55                   	push   rbp
+  a3:	48 89 e5             	mov    rbp,rsp
+  a6:	48 83 ec 30          	sub    rsp,0x30
+  aa:	e8 00 00 00 00       	call   af <main+0xd>
+  af:	48 8d 05 00 00 00 00 	lea    rax,[rip+0x0]        # b6 <main+0x14>
+  b6:	48 89 c1             	mov    rcx,rax
+  b9:	e8 93 ff ff ff       	call   51 <printf>
+  be:	48 8d 55 f4          	lea    rdx,[rbp-0xc]
+  c2:	48 8d 45 f8          	lea    rax,[rbp-0x8]
+  c6:	49 89 d0             	mov    r8,rdx
+  c9:	48 89 c2             	mov    rdx,rax
+  cc:	48 8d 05 14 00 00 00 	lea    rax,[rip+0x14]        # e7 <main+0x45>
+  d3:	48 89 c1             	mov    rcx,rax
+  d6:	e8 25 ff ff ff       	call   0 <scanf>
+  db:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+  de:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+  e1:	01 d0                	add    eax,edx
+  e3:	89 45 fc             	mov    DWORD PTR [rbp-0x4],eax
+  e6:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+  e9:	89 c2                	mov    edx,eax
+  eb:	48 8d 05 1a 00 00 00 	lea    rax,[rip+0x1a]        # 10c <main+0x6a>
+  f2:	48 89 c1             	mov    rcx,rax
+  f5:	e8 57 ff ff ff       	call   51 <printf>
+  fa:	b8 00 00 00 00       	mov    eax,0x0
+  ff:	48 83 c4 30          	add    rsp,0x30
+ 103:	5d                   	pop    rbp
+ 104:	c3                   	ret    
+ 105:	90                   	nop
+ 106:	90                   	nop
+ 107:	90                   	nop
+ 108:	90                   	nop
+ 109:	90                   	nop
+ 10a:	90                   	nop
+ 10b:	90                   	nop
+ 10c:	90                   	nop
+ 10d:	90                   	nop
+ 10e:	90                   	nop
+ 10f:	90                   	nop

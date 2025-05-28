@@ -1,7 +1,7 @@
-# 0 "add.c"
+# 0 "even_odd.c"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "add.c"
+# 1 "even_odd.c"
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
 # 9 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 3
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\corecrt_stdio_config.h" 1 3
@@ -1030,15 +1030,18 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwscanf_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _wscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
 # 1559 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 2 "add.c" 2
+# 2 "even_odd.c" 2
 
-# 2 "add.c"
-int main()
-{
-    int a, b, sum;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    sum = a + b;
-    printf("Sum = %d\n", sum);
+
+# 3 "even_odd.c"
+int main() {
+    int number = 7;
+
+    if(number % 2 == 0) {
+        printf("%d is even.\n", number);
+    } else {
+        printf("%d is odd.\n", number);
+    }
+
     return 0;
 }

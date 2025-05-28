@@ -1,7 +1,7 @@
-# 0 "add.c"
+# 0 "factorial.c"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "add.c"
+# 1 "factorial.c"
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
 # 9 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 3
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\corecrt_stdio_config.h" 1 3
@@ -1030,15 +1030,28 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwscanf_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _wscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
 # 1559 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 2 "add.c" 2
+# 2 "factorial.c" 2
 
-# 2 "add.c"
-int main()
-{
-    int a, b, sum;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    sum = a + b;
-    printf("Sum = %d\n", sum);
+
+# 3 "factorial.c"
+unsigned long long factorial(int n) {
+    if (n < 0) return 0;
+    unsigned long long result = 1;
+    for (int i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    printf("Enter a non-negative integer: ");
+    scanf("%d", &n);
+
+    if (n < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        printf("%d! = %llu\n", n, factorial(n));
+    }
     return 0;
 }

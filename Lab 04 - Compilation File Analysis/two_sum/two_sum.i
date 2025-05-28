@@ -1,7 +1,7 @@
-# 0 "add.c"
+# 0 "two_sum.c"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "add.c"
+# 1 "two_sum.c"
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
 # 9 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 3
 # 1 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\corecrt_stdio_config.h" 1 3
@@ -1030,15 +1030,45 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwscanf_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _wscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
 # 1559 "e:\\files\\files\\setup file\\mingw\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 2 "add.c" 2
+# 2 "two_sum.c" 2
+# 1 "e:\\files\\files\\setup file\\mingw\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\stdbool.h" 1 3 4
+# 3 "two_sum.c" 2
 
-# 2 "add.c"
-int main()
-{
-    int a, b, sum;
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    sum = a + b;
-    printf("Sum = %d\n", sum);
+_Bool 
+# 4 "two_sum.c"
+    two_sum(int arr[], int n, int target, int *index1, int *index2) {
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[i] + arr[j] == target) {
+                *index1 = i;
+                *index2 = j;
+                return 
+# 10 "two_sum.c" 3 4
+                      1
+# 10 "two_sum.c"
+                          ;
+            }
+        }
+    }
+    return 
+# 14 "two_sum.c" 3 4
+          0
+# 14 "two_sum.c"
+               ;
+}
+
+int main() {
+    int arr[] = {2, 7, 11, 15};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 9;
+    int idx1, idx2;
+
+    if (two_sum(arr, n, target, &idx1, &idx2)) {
+        printf("Indices: %d, %d\n", idx1, idx2);
+        printf("Numbers: %d, %d\n", arr[idx1], arr[idx2]);
+    } else {
+        printf("No two numbers add up to %d\n", target);
+    }
+
     return 0;
 }
