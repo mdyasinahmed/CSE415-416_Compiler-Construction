@@ -432,9 +432,9 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "cal1.l"
+#line 1 "task.l"
 #define INITIAL 0
-#line 4 "cal1.l"
+#line 4 "task.l"
 // Roll Number: 1703xxx
 #include <stdio.h>
 /* Definitions */
@@ -589,7 +589,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 19 "cal1.l"
+#line 19 "task.l"
 
 
 #line 596 "lex.yy.c"
@@ -677,162 +677,162 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "cal1.l"
+#line 21 "task.l"
 { printf("%s -> KEYWORD_INT\n", yytext); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "cal1.l"
+#line 22 "task.l"
 { printf("%s -> KEYWORD_FLOAT\n", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "cal1.l"
+#line 23 "task.l"
 { printf("%s -> KEYWORD_DOUBLE\n", yytext); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "cal1.l"
+#line 24 "task.l"
 { printf("%s -> KEYWORD_CHAR\n", yytext); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "cal1.l"
+#line 25 "task.l"
 { printf("%s -> KEYWORD_FOR\n", yytext); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "cal1.l"
+#line 26 "task.l"
 { printf("%s -> KEYWORD_RETURN\n", yytext); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 28 "cal1.l"
+#line 28 "task.l"
 { printf("%s -> FUNC_SCANF\n", yytext); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 29 "cal1.l"
+#line 29 "task.l"
 { printf("%s -> FUNC_PRINTF\n", yytext); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 30 "cal1.l"
+#line 30 "task.l"
 { printf("%s -> FUNC_MAIN\n", yytext); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 33 "cal1.l"
+#line 33 "task.l"
 { printf("%s -> ASSIGN\n", yytext); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 34 "cal1.l"
+#line 34 "task.l"
 { printf("%s -> SEMICOLON\n", yytext); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 35 "cal1.l"
+#line 35 "task.l"
 { printf("%s -> COMMA\n", yytext); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 36 "cal1.l"
+#line 36 "task.l"
 { printf("%s -> LEFT_PAREN\n", yytext); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 37 "cal1.l"
+#line 37 "task.l"
 { printf("%s -> RIGHT_PAREN\n", yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 38 "cal1.l"
+#line 38 "task.l"
 { printf("%s -> LEFT_BRACE\n", yytext); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 39 "cal1.l"
+#line 39 "task.l"
 { printf("%s -> RIGHT_BRACE\n", yytext); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 40 "cal1.l"
+#line 40 "task.l"
 { printf("%s -> ADDRESS_OF\n", yytext); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 41 "cal1.l"
+#line 41 "task.l"
 { printf("%s -> INCREMENT\n", yytext); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 42 "cal1.l"
+#line 42 "task.l"
 { printf("%s -> DECREMENT\n", yytext); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 43 "cal1.l"
+#line 43 "task.l"
 { printf("%s -> PLUS\n", yytext); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 44 "cal1.l"
+#line 44 "task.l"
 { printf("%s -> MINUS\n", yytext); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 45 "cal1.l"
+#line 45 "task.l"
 { printf("%s -> MULTIPLY\n", yytext); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 46 "cal1.l"
+#line 46 "task.l"
 { printf("%s -> DIVIDE\n", yytext); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 49 "cal1.l"
+#line 49 "task.l"
 { printf("%s -> REL_OP\n", yytext); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 50 "cal1.l"
+#line 50 "task.l"
 { printf("%s -> EXPONENTIAL_LITERAL\n", yytext); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 51 "cal1.l"
+#line 51 "task.l"
 { printf("%s -> FLOAT_LITERAL\n", yytext); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 52 "cal1.l"
+#line 52 "task.l"
 { printf("%s -> INT_LITERAL\n", yytext); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 53 "cal1.l"
+#line 53 "task.l"
 { printf("%s -> CHAR_LITERAL\n", yytext); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 54 "cal1.l"
+#line 54 "task.l"
 { printf("%s -> IDENTIFIER\n", yytext); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 57 "cal1.l"
+#line 57 "task.l"
 { /* skip */ }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 59 "cal1.l"
+#line 59 "task.l"
 { printf("%s -> SPECIAL CHAR\n", yytext); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 61 "cal1.l"
+#line 61 "task.l"
 ECHO;
 	YY_BREAK
 #line 839 "lex.yy.c"
@@ -1721,7 +1721,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 61 "cal1.l"
+#line 61 "task.l"
 
 
 int main() {
