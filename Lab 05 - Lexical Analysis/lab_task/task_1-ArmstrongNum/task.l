@@ -1,62 +1,56 @@
 %option noyywrap
 
 %{
-// Roll Number: 1703xxx
 #include <stdio.h>
+#include <string.h>
 %}
 
-/* Definitions */
-digit           [0-9]
-letter          [a-zA-Z]
-id              {letter}({letter}|{digit})*
-delim           [ \t\n]
-relop           "<="|">="|"=="|"!="|"<"|">"
-int_lit         {digit}+
-exp_lit         [-]?{digit}+(\.{digit}+)?[eE][-+]?{digit}+
-float_lit       {digit}+"."{digit}+
-char_lit        \'[a-zA-Z0-9]\'|‘[a-zA-Z0-9]’|“[^\"]*”|\"[^\"]*\"
+letter      [a-zA-Z]
+digit       [0-9]
+delim       [ \t\n]
+under       [_]
+num         {digit}+
+float_num   {num}[.]{num}
+id          ({under}|{letter})({under}|{letter}|{digit})*
 
 %%
 
-"int"           { printf("%s -> KEYWORD_INT\n", yytext); }
-"float"         { printf("%s -> KEYWORD_FLOAT\n", yytext); }
-"double"        { printf("%s -> KEYWORD_DOUBLE\n", yytext); }
-"char"          { printf("%s -> KEYWORD_CHAR\n", yytext); }
-"for"           { printf("%s -> KEYWORD_FOR\n", yytext); }
-"return"        { printf("%s -> KEYWORD_RETURN\n", yytext); }
+"#include"                     { printf("%s -> PREPROCESSOR\n", yytext); }
+"<stdio.h>"                   { printf("%s -> HEADER_FILE\n", yytext); }
+"<math.h>"                    { printf("%s -> HEADER_FILE\n", yytext); }
 
-"scanf"         { printf("%s -> FUNC_SCANF\n", yytext); }
-"printf"        { printf("%s -> FUNC_PRINTF\n", yytext); }
-"main"          { printf("%s -> FUNC_MAIN\n", yytext); }
+"int"                         { printf("%s -> INT\n", yytext); }
+"float"                       { printf("%s -> FLOAT\n", yytext); }
+"main"                        { printf("%s -> MAIN\n", yytext); }
+"return"                      { printf("%s -> RETURN\n", yytext); }
+"for"                         { printf("%s -> FOR\n", yytext); }
+"if"                          { printf("%s -> IF\n", yytext); }
+"else"                        { printf("%s -> ELSE\n", yytext); }
+"printf"                      { printf("%s -> PRINTF\n", yytext); }
+"pow"                         { printf("%s -> POW_FUNC\n", yytext); }
 
+"="                           { printf("%s -> ASSIGN\n", yytext); }
+"=="                          { printf("%s -> EQ\n", yytext); }
+"!="                          { printf("%s -> NEQ\n", yytext); }
+"++"                          { printf("%s -> INC\n", yytext); }
+"+"                           { printf("%s -> ADD\n", yytext); }
+"-"                           { printf("%s -> SUB\n", yytext); }
+"*"                           { printf("%s -> MUL\n", yytext); }
+"/"                           { printf("%s -> DIV\n", yytext); }
+"%"                           { printf("%s -> MOD\n", yytext); }
 
-"="             { printf("%s -> ASSIGN\n", yytext); }
-";"             { printf("%s -> SEMICOLON\n", yytext); }
-","             { printf("%s -> COMMA\n", yytext); }
-"("             { printf("%s -> LEFT_PAREN\n", yytext); }
-")"             { printf("%s -> RIGHT_PAREN\n", yytext); }
-"{"             { printf("%s -> LEFT_BRACE\n", yytext); }
-"}"             { printf("%s -> RIGHT_BRACE\n", yytext); }
-"&"             { printf("%s -> ADDRESS_OF\n", yytext); }
-"++"            { printf("%s -> INCREMENT\n", yytext); }
-"--"            { printf("%s -> DECREMENT\n", yytext); }
-"+"             { printf("%s -> PLUS\n", yytext); }
-"-"             { printf("%s -> MINUS\n", yytext); }
-"*"             { printf("%s -> MULTIPLY\n", yytext); }
-"/"             { printf("%s -> DIVIDE\n", yytext); }
+"("                           { printf("%s -> LPAREN\n", yytext); }
+")"                           { printf("%s -> RPAREN\n", yytext); }
+"{"                           { printf("%s -> LBRACE\n", yytext); }
+"}"                           { printf("%s -> RBRACE\n", yytext); }
+";"                           { printf("%s -> SEMI\n", yytext); }
 
+{float_num}                   { printf("%s -> FLOAT_NUM\n", yytext); }
+{num}                         { printf("%s -> NUMBER\n", yytext); }
+{id}                          { printf("%s -> ID\n", yytext); }
 
-{relop}         { printf("%s -> REL_OP\n", yytext); }
-{exp_lit}       { printf("%s -> EXPONENTIAL_LITERAL\n", yytext); }
-{float_lit}     { printf("%s -> FLOAT_LITERAL\n", yytext); }
-{int_lit}       { printf("%s -> INT_LITERAL\n", yytext); }
-{char_lit}      { printf("%s -> CHAR_LITERAL\n", yytext); }
-{id}            { printf("%s -> IDENTIFIER\n", yytext); }
-
-
-{delim}         { /* skip */ }
-
-.               { printf("%s -> SPECIAL CHAR\n", yytext); }
+{delim}                       {/* skip whitespace */}
+.                             { printf("%s -> UNKNOWN\n", yytext); }
 
 %%
 
