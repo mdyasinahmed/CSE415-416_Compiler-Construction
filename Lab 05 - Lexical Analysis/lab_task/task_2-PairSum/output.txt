@@ -23,7 +23,7 @@ i -> ID
 0 -> NUMBER
 ; -> SEMI
 i -> ID
-< -> UNKNOWN
+< -> PUNCT
 size -> ID
 ; -> SEMI
 i -> ID
@@ -40,7 +40,7 @@ i -> ID
 1 -> NUMBER
 ; -> SEMI
 j -> ID
-< -> UNKNOWN
+< -> PUNCT
 size -> ID
 ; -> SEMI
 j -> ID
@@ -64,10 +64,10 @@ target -> ID
 { -> LBRACE
 printf -> PRINTF
 ( -> LPAREN
-" -> UNKNOWN
+" -> PUNCT
 Pair -> ID
 found -> ID
-: -> UNKNOWN
+: -> PUNCT
 ( -> LPAREN
 % -> MOD
 d -> ID
@@ -75,9 +75,9 @@ d -> ID
 % -> MOD
 d -> ID
 ) -> RPAREN
-\ -> UNKNOWN
+\ -> PUNCT
 n -> ID
-" -> UNKNOWN
+" -> PUNCT
 , -> COMMA
 arr -> ID
 [ -> LBRACKET

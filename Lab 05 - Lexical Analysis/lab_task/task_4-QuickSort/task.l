@@ -54,7 +54,7 @@ id          ({under}|{letter})({under}|{letter}|{digit})*
 {id}                           { printf("%s -> ID\n", yytext); }
 
 {delim}                        {/* skip whitespace */}
-.                              { printf("%s -> UNKNOWN\n", yytext); }
+.                              { printf("%s -> PUNCT\n", yytext); }
 
 %%
 

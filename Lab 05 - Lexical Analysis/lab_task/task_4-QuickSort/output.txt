@@ -253,10 +253,10 @@ i -> ID
 ) -> RPAREN
 printf -> PRINTF
 ( -> LPAREN
-" -> UNKNOWN
+" -> PUNCT
 % -> MOD
 d -> ID
-" -> UNKNOWN
+" -> PUNCT
 , -> COMMA
 arr -> ID
 [ -> LBRACKET

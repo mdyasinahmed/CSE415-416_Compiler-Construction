@@ -801,7 +801,7 @@ YY_RULE_SETUP
 case 30:
 YY_RULE_SETUP
 #line 52 "task.l"
-{ printf("%s -> UNKNOWN\n", yytext); }
+{ printf("%s -> PUNCT\n", yytext); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
