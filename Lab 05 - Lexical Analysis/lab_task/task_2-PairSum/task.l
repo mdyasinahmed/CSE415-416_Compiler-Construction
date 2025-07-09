@@ -15,7 +15,7 @@ id          ({under}|{letter})({under}|{letter}|{digit})*
 
 %%
 
-"#include"                     { printf("%s -> PREPROCESSOR\n", yytext); }
+"#include"                    { printf("%s -> PREPROCESSOR\n", yytext); }
 "<stdio.h>"                   { printf("%s -> HEADER_FILE\n", yytext); }
 
 "int"                         { printf("%s -> INT\n", yytext); }
@@ -43,6 +43,8 @@ id          ({under}|{letter})({under}|{letter}|{digit})*
 ";"                           { printf("%s -> SEMI\n", yytext); }
 "\["                          { printf("%s -> LBRACKET\n", yytext); }
 "\]"                          { printf("%s -> RBRACKET\n", yytext); }
+"<"                           { printf("%s -> LCOMP\n", yytext); }
+">"                           { printf("%s -> RCOMP\n", yytext); }
 
 {float_num}                   { printf("%s -> FLOAT_NUM\n", yytext); }
 {num}                         { printf("%s -> NUMBER\n", yytext); }

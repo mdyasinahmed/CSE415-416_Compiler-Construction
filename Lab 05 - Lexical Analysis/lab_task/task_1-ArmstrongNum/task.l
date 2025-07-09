@@ -32,6 +32,10 @@ id          ({under}|{letter})({under}|{letter}|{digit})*
 "="                           { printf("%s -> ASSIGN\n", yytext); }
 "=="                          { printf("%s -> EQ\n", yytext); }
 "!="                          { printf("%s -> NEQ\n", yytext); }
+"<="                           { printf("%s -> LE\n", yytext); }
+">="                           { printf("%s -> GE\n", yytext); }
+">"                            { printf("%s -> GT\n", yytext); }
+"<"                            { printf("%s -> LT\n", yytext); }
 "++"                          { printf("%s -> INC\n", yytext); }
 "+"                           { printf("%s -> ADD\n", yytext); }
 "-"                           { printf("%s -> SUB\n", yytext); }

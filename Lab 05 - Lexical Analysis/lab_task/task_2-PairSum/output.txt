@@ -23,7 +23,7 @@ i -> ID
 0 -> NUMBER
 ; -> SEMI
 i -> ID
-< -> PUNCT
+< -> LCOMP
 size -> ID
 ; -> SEMI
 i -> ID
@@ -40,7 +40,7 @@ i -> ID
 1 -> NUMBER
 ; -> SEMI
 j -> ID
-< -> PUNCT
+< -> LCOMP
 size -> ID
 ; -> SEMI
 j -> ID
