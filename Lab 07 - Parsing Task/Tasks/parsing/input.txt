@@ -1,0 +1,8 @@
+even(10);
+odd(7);
+vowel('a');
+consonant('b');
+greater(8, 3);
+less(3, 10);
+prime(11);
+factorial(5);
