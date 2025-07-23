@@ -21,6 +21,6 @@ void yyerror(char *s)
 int main()
 {
     yyparse();
-    printf("Parsing Finished\n");
+    printf("Parsing Done\n");
 }
 
