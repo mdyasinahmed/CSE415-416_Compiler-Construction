@@ -10,6 +10,9 @@
 | 4       | Compilation File Analysis                  | 22-05-2025 |
 | 5       | Lexical Analysis                           | 28-05-2025 |
 | 6       | Lexical Analysis Viva                      | 02-07-2025 |
+| 7       | Parsing                                    | 09-07-2025 |
+| 8       | Parsing Task                               | 16-07-2025 |
+| 9       | Parsing Viva                               | 16-07-2025 |
 
 
 
