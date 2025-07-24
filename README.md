@@ -12,7 +12,7 @@
 | 6       | Lexical Analysis Viva                      | 02-07-2025 |
 | 7       | Parsing                                    | 09-07-2025 |
 | 8       | Parsing Task                               | 16-07-2025 |
-| 9       | Parsing Viva                               | 16-07-2025 |
+| 9       | Parsing Viva                               | 23-07-2025 |
 
 
 
