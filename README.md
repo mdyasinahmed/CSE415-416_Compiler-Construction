@@ -1,6 +1,7 @@
-# CSE-415_Compiler-Construction
+## CSE415 - Compiler Construction
+## CSE416 - Compiler Construction Lab
 
-## Lab Sessions
+### Lab Sessions
 
 | Lab No. | Topics Covered                             | Date       |
 |---------|--------------------------------------------|------------|
