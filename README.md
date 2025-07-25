@@ -3,7 +3,7 @@
 
 ### Lab Sessions
 
-| Lab No. | Topics Covered                             | Date       |
+| Lab No. |                 Topics Covered             |    Date    |
 |---------|--------------------------------------------|------------|
 | 1       | Environment Setup                          | 07-05-2025 |
 | 2       | Environment Setup                          | 14-05-2025 |
