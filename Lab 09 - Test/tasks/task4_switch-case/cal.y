@@ -30,7 +30,7 @@ default_case:
 
 stmt:
       ID ASSIGN NUMBER SEMICOLON {
-          if ($1 == result) {} 
+          if ($1 == result) {}  // Dummy usage
       }
     ;
 %%

@@ -9,13 +9,13 @@ letter      [a-zA-Z]
 digit       [0-9]
 delim       [ \t\n]
 under       [_]
-num         {digit}+
+num         {digit}+ 
 float_num   {num}[.]{num}
 id          ({under}|{letter})({under}|{letter}|{digit})*
 
 %%
 
-"#include"                     { printf("%s -> PREPROCESSOR\n", yytext); }
+"#include"                    { printf("%s -> PREPROCESSOR\n", yytext); }
 "<stdio.h>"                   { printf("%s -> HEADER_FILE\n", yytext); }
 "<math.h>"                    { printf("%s -> HEADER_FILE\n", yytext); }
 

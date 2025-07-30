@@ -57,5 +57,6 @@ id          ({under}|{letter})({under}|{letter}|{digit})*
 
 int main() {
     yylex();
+    printf("tokenizing finished.");
     return 0;
 }
