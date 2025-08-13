@@ -1,0 +1,13 @@
+float total=0.0,avg;
+for(int i=0;i<5;i++){
+    total=total+marks;
+}
+if(x>0){
+    switch(x){
+        case 1: y=y+10; break;
+        case 2: y=y+20; break;
+        default: y=0;   
+    }
+}  else{
+    y=-1;
+}

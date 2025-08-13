@@ -1,0 +1,9 @@
+In line no 1, Inserting a with type INT_TYPE in symbol table.
+In line no 2, Inserting b with type FLOAT_OR_DOUBLE_TYPE in symbol table.
+In line no 3, Inserting c with type FLOAT_OR_DOUBLE_TYPE in symbol table.
+In line no 4, Data type INT_TYPE is not matched with Data type FLOAT_OR_DOUBLE_TYPE.
+In line no 4, Data type INT_TYPE is not matched with Data type FLOAT_OR_DOUBLE_TYPE.
+In line no 4, Data type FLOAT_OR_DOUBLE_TYPE is not matched with Data type UNDEF_TYPE.
+In line no 4, Data type UNDEF_TYPE is not matched with Data type UNDEF_TYPE.
+In line no 4, Inserting result with type FLOAT_OR_DOUBLE_TYPE in symbol table.
+Parsing finished!

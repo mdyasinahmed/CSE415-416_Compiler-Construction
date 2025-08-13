@@ -1,0 +1,1225 @@
+Terminals unused in grammar
+
+   FLOAT_NUM
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: includes main_function
+
+    2 includes: include_stmt
+
+    3 include_stmt: INCLUDE STDIO
+
+    4 main_function: INT_TYPE MAIN LB RB block
+
+    5 block: CLB decl_list stmt_list CRB
+
+    6 decl_list: /* empty */
+    7          | decl_list declaration
+
+    8 declaration: INT_TYPE var_init_list SEMI
+    9            | CHAR_TYPE var_init_list SEMI
+
+   10 var_init_list: var_init
+   11              | var_init_list COMMA var_init
+
+   12 var_init: ID
+   13         | ID ASSIGN expr
+   14         | ID ASSIGN CHAR_LITERAL
+
+   15 stmt_list: /* empty */
+   16          | stmt_list statement
+
+   17 statement: printf_stmt
+   18          | scanf_stmt
+   19          | assignment_stmt
+   20          | switch_stmt
+   21          | if_stmt
+   22          | RETURN INT_NUM SEMI
+   23          | SEMI
+
+   24 printf_stmt: PRINTF LB STRING RB SEMI
+   25            | PRINTF LB STRING COMMA expr RB SEMI
+
+   26 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID RB SEMI
+   27           | SCANF LB STRING COMMA ADDRESS ID COMMA ADDRESS ID RB SEMI
+
+   28 assignment_stmt: ID ASSIGN expr SEMI
+
+   29 switch_stmt: SWITCH LB ID RB switch_block
+
+   30 switch_block: CLB switch_items CRB
+
+   31 switch_items: /* empty */
+   32             | switch_items case_block
+   33             | switch_items default_block
+
+   34 case_block: CASE CHAR_LITERAL COLON case_body
+   35           | CASE INT_NUM COLON case_body
+
+   36 case_body: stmt_list BREAK SEMI
+
+   37 default_block: DEFAULT COLON stmt_list
+
+   38 if_stmt: IF LB condition RB statement
+   39        | IF LB condition RB statement ELSE statement
+
+   40 condition: expr NEQ expr
+
+   41 expr: expr ADD term
+   42     | expr SUB term
+   43     | term
+
+   44 term: term MUL factor
+   45     | term DIV factor
+   46     | factor
+
+   47 factor: ID
+   48       | INT_NUM
+   49       | LB expr RB
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+INCLUDE (258) 3
+STDIO (259) 3
+INT_TYPE (260) 4 8
+CHAR_TYPE (261) 9
+MAIN (262) 4
+PRINTF (263) 24 25
+SCANF (264) 26 27
+SWITCH (265) 29
+CASE (266) 34 35
+DEFAULT (267) 37
+BREAK (268) 36
+RETURN (269) 22
+IF (270) 38 39
+ELSE (271) 39
+INT_NUM (272) 22 35 48
+FLOAT_NUM (273)
+ASSIGN (274) 13 14 28
+ADD (275) 41
+SUB (276) 42
+MUL (277) 44
+DIV (278) 45
+SEMI (279) 8 9 22 23 24 25 26 27 28 36
+LB (280) 4 24 25 26 27 29 38 39 49
+RB (281) 4 24 25 26 27 29 38 39 49
+CLB (282) 5 30
+CRB (283) 5 30
+COLON (284) 34 35 37
+COMMA (285) 11 25 26 27
+ADDRESS (286) 26 27
+NEQ (287) 40
+ID (288) 12 13 14 26 27 28 29 47
+STRING (289) 24 25 26 27
+CHAR_LITERAL (290) 14 34
+LOWER_THAN_ELSE (291)
+
+
+Nonterminals, with rules where they appear
+
+$accept (37)
+    on left: 0
+program (38)
+    on left: 1, on right: 0
+includes (39)
+    on left: 2, on right: 1
+include_stmt (40)
+    on left: 3, on right: 2
+main_function (41)
+    on left: 4, on right: 1
+block (42)
+    on left: 5, on right: 4
+decl_list (43)
+    on left: 6 7, on right: 5 7
+declaration (44)
+    on left: 8 9, on right: 7
+var_init_list (45)
+    on left: 10 11, on right: 8 9 11
+var_init (46)
+    on left: 12 13 14, on right: 10 11
+stmt_list (47)
+    on left: 15 16, on right: 5 16 36 37
+statement (48)
+    on left: 17 18 19 20 21 22 23, on right: 16 38 39
+printf_stmt (49)
+    on left: 24 25, on right: 17
+scanf_stmt (50)
+    on left: 26 27, on right: 18
+assignment_stmt (51)
+    on left: 28, on right: 19
+switch_stmt (52)
+    on left: 29, on right: 20
+switch_block (53)
+    on left: 30, on right: 29
+switch_items (54)
+    on left: 31 32 33, on right: 30 32 33
+case_block (55)
+    on left: 34 35, on right: 32
+case_body (56)
+    on left: 36, on right: 34 35
+default_block (57)
+    on left: 37, on right: 33
+if_stmt (58)
+    on left: 38 39, on right: 21
+condition (59)
+    on left: 40, on right: 38 39
+expr (60)
+    on left: 41 42 43, on right: 13 25 28 40 41 42 49
+term (61)
+    on left: 44 45 46, on right: 41 42 43 44 45
+factor (62)
+    on left: 47 48 49, on right: 44 45 46
+
+
+state 0
+
+    0 $accept: . program $end
+
+    INCLUDE  shift, and go to state 1
+
+    program       go to state 2
+    includes      go to state 3
+    include_stmt  go to state 4
+
+
+state 1
+
+    3 include_stmt: INCLUDE . STDIO
+
+    STDIO  shift, and go to state 5
+
+
+state 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 6
+
+
+state 3
+
+    1 program: includes . main_function
+
+    INT_TYPE  shift, and go to state 7
+
+    main_function  go to state 8
+
+
+state 4
+
+    2 includes: include_stmt .
+
+    $default  reduce using rule 2 (includes)
+
+
+state 5
+
+    3 include_stmt: INCLUDE STDIO .
+
+    $default  reduce using rule 3 (include_stmt)
+
+
+state 6
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 7
+
+    4 main_function: INT_TYPE . MAIN LB RB block
+
+    MAIN  shift, and go to state 9
+
+
+state 8
+
+    1 program: includes main_function .
+
+    $default  reduce using rule 1 (program)
+
+
+state 9
+
+    4 main_function: INT_TYPE MAIN . LB RB block
+
+    LB  shift, and go to state 10
+
+
+state 10
+
+    4 main_function: INT_TYPE MAIN LB . RB block
+
+    RB  shift, and go to state 11
+
+
+state 11
+
+    4 main_function: INT_TYPE MAIN LB RB . block
+
+    CLB  shift, and go to state 12
+
+    block  go to state 13
+
+
+state 12
+
+    5 block: CLB . decl_list stmt_list CRB
+
+    $default  reduce using rule 6 (decl_list)
+
+    decl_list  go to state 14
+
+
+state 13
+
+    4 main_function: INT_TYPE MAIN LB RB block .
+
+    $default  reduce using rule 4 (main_function)
+
+
+state 14
+
+    5 block: CLB decl_list . stmt_list CRB
+    7 decl_list: decl_list . declaration
+
+    INT_TYPE   shift, and go to state 15
+    CHAR_TYPE  shift, and go to state 16
+
+    $default  reduce using rule 15 (stmt_list)
+
+    declaration  go to state 17
+    stmt_list    go to state 18
+
+
+state 15
+
+    8 declaration: INT_TYPE . var_init_list SEMI
+
+    ID  shift, and go to state 19
+
+    var_init_list  go to state 20
+    var_init       go to state 21
+
+
+state 16
+
+    9 declaration: CHAR_TYPE . var_init_list SEMI
+
+    ID  shift, and go to state 19
+
+    var_init_list  go to state 22
+    var_init       go to state 21
+
+
+state 17
+
+    7 decl_list: decl_list declaration .
+
+    $default  reduce using rule 7 (decl_list)
+
+
+state 18
+
+    5 block: CLB decl_list stmt_list . CRB
+   16 stmt_list: stmt_list . statement
+
+    PRINTF  shift, and go to state 23
+    SCANF   shift, and go to state 24
+    SWITCH  shift, and go to state 25
+    RETURN  shift, and go to state 26
+    IF      shift, and go to state 27
+    SEMI    shift, and go to state 28
+    CRB     shift, and go to state 29
+    ID      shift, and go to state 30
+
+    statement        go to state 31
+    printf_stmt      go to state 32
+    scanf_stmt       go to state 33
+    assignment_stmt  go to state 34
+    switch_stmt      go to state 35
+    if_stmt          go to state 36
+
+
+state 19
+
+   12 var_init: ID .
+   13         | ID . ASSIGN expr
+   14         | ID . ASSIGN CHAR_LITERAL
+
+    ASSIGN  shift, and go to state 37
+
+    $default  reduce using rule 12 (var_init)
+
+
+state 20
+
+    8 declaration: INT_TYPE var_init_list . SEMI
+   11 var_init_list: var_init_list . COMMA var_init
+
+    SEMI   shift, and go to state 38
+    COMMA  shift, and go to state 39
+
+
+state 21
+
+   10 var_init_list: var_init .
+
+    $default  reduce using rule 10 (var_init_list)
+
+
+state 22
+
+    9 declaration: CHAR_TYPE var_init_list . SEMI
+   11 var_init_list: var_init_list . COMMA var_init
+
+    SEMI   shift, and go to state 40
+    COMMA  shift, and go to state 39
+
+
+state 23
+
+   24 printf_stmt: PRINTF . LB STRING RB SEMI
+   25            | PRINTF . LB STRING COMMA expr RB SEMI
+
+    LB  shift, and go to state 41
+
+
+state 24
+
+   26 scanf_stmt: SCANF . LB STRING COMMA ADDRESS ID RB SEMI
+   27           | SCANF . LB STRING COMMA ADDRESS ID COMMA ADDRESS ID RB SEMI
+
+    LB  shift, and go to state 42
+
+
+state 25
+
+   29 switch_stmt: SWITCH . LB ID RB switch_block
+
+    LB  shift, and go to state 43
+
+
+state 26
+
+   22 statement: RETURN . INT_NUM SEMI
+
+    INT_NUM  shift, and go to state 44
+
+
+state 27
+
+   38 if_stmt: IF . LB condition RB statement
+   39        | IF . LB condition RB statement ELSE statement
+
+    LB  shift, and go to state 45
+
+
+state 28
+
+   23 statement: SEMI .
+
+    $default  reduce using rule 23 (statement)
+
+
+state 29
+
+    5 block: CLB decl_list stmt_list CRB .
+
+    $default  reduce using rule 5 (block)
+
+
+state 30
+
+   28 assignment_stmt: ID . ASSIGN expr SEMI
+
+    ASSIGN  shift, and go to state 46
+
+
+state 31
+
+   16 stmt_list: stmt_list statement .
+
+    $default  reduce using rule 16 (stmt_list)
+
+
+state 32
+
+   17 statement: printf_stmt .
+
+    $default  reduce using rule 17 (statement)
+
+
+state 33
+
+   18 statement: scanf_stmt .
+
+    $default  reduce using rule 18 (statement)
+
+
+state 34
+
+   19 statement: assignment_stmt .
+
+    $default  reduce using rule 19 (statement)
+
+
+state 35
+
+   20 statement: switch_stmt .
+
+    $default  reduce using rule 20 (statement)
+
+
+state 36
+
+   21 statement: if_stmt .
+
+    $default  reduce using rule 21 (statement)
+
+
+state 37
+
+   13 var_init: ID ASSIGN . expr
+   14         | ID ASSIGN . CHAR_LITERAL
+
+    INT_NUM       shift, and go to state 47
+    LB            shift, and go to state 48
+    ID            shift, and go to state 49
+    CHAR_LITERAL  shift, and go to state 50
+
+    expr    go to state 51
+    term    go to state 52
+    factor  go to state 53
+
+
+state 38
+
+    8 declaration: INT_TYPE var_init_list SEMI .
+
+    $default  reduce using rule 8 (declaration)
+
+
+state 39
+
+   11 var_init_list: var_init_list COMMA . var_init
+
+    ID  shift, and go to state 19
+
+    var_init  go to state 54
+
+
+state 40
+
+    9 declaration: CHAR_TYPE var_init_list SEMI .
+
+    $default  reduce using rule 9 (declaration)
+
+
+state 41
+
+   24 printf_stmt: PRINTF LB . STRING RB SEMI
+   25            | PRINTF LB . STRING COMMA expr RB SEMI
+
+    STRING  shift, and go to state 55
+
+
+state 42
+
+   26 scanf_stmt: SCANF LB . STRING COMMA ADDRESS ID RB SEMI
+   27           | SCANF LB . STRING COMMA ADDRESS ID COMMA ADDRESS ID RB SEMI
+
+    STRING  shift, and go to state 56
+
+
+state 43
+
+   29 switch_stmt: SWITCH LB . ID RB switch_block
+
+    ID  shift, and go to state 57
+
+
+state 44
+
+   22 statement: RETURN INT_NUM . SEMI
+
+    SEMI  shift, and go to state 58
+
+
+state 45
+
+   38 if_stmt: IF LB . condition RB statement
+   39        | IF LB . condition RB statement ELSE statement
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    condition  go to state 59
+    expr       go to state 60
+    term       go to state 52
+    factor     go to state 53
+
+
+state 46
+
+   28 assignment_stmt: ID ASSIGN . expr SEMI
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    expr    go to state 61
+    term    go to state 52
+    factor  go to state 53
+
+
+state 47
+
+   48 factor: INT_NUM .
+
+    $default  reduce using rule 48 (factor)
+
+
+state 48
+
+   49 factor: LB . expr RB
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    expr    go to state 62
+    term    go to state 52
+    factor  go to state 53
+
+
+state 49
+
+   47 factor: ID .
+
+    $default  reduce using rule 47 (factor)
+
+
+state 50
+
+   14 var_init: ID ASSIGN CHAR_LITERAL .
+
+    $default  reduce using rule 14 (var_init)
+
+
+state 51
+
+   13 var_init: ID ASSIGN expr .
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+
+    ADD  shift, and go to state 63
+    SUB  shift, and go to state 64
+
+    $default  reduce using rule 13 (var_init)
+
+
+state 52
+
+   43 expr: term .
+   44 term: term . MUL factor
+   45     | term . DIV factor
+
+    MUL  shift, and go to state 65
+    DIV  shift, and go to state 66
+
+    $default  reduce using rule 43 (expr)
+
+
+state 53
+
+   46 term: factor .
+
+    $default  reduce using rule 46 (term)
+
+
+state 54
+
+   11 var_init_list: var_init_list COMMA var_init .
+
+    $default  reduce using rule 11 (var_init_list)
+
+
+state 55
+
+   24 printf_stmt: PRINTF LB STRING . RB SEMI
+   25            | PRINTF LB STRING . COMMA expr RB SEMI
+
+    RB     shift, and go to state 67
+    COMMA  shift, and go to state 68
+
+
+state 56
+
+   26 scanf_stmt: SCANF LB STRING . COMMA ADDRESS ID RB SEMI
+   27           | SCANF LB STRING . COMMA ADDRESS ID COMMA ADDRESS ID RB SEMI
+
+    COMMA  shift, and go to state 69
+
+
+state 57
+
+   29 switch_stmt: SWITCH LB ID . RB switch_block
+
+    RB  shift, and go to state 70
+
+
+state 58
+
+   22 statement: RETURN INT_NUM SEMI .
+
+    $default  reduce using rule 22 (statement)
+
+
+state 59
+
+   38 if_stmt: IF LB condition . RB statement
+   39        | IF LB condition . RB statement ELSE statement
+
+    RB  shift, and go to state 71
+
+
+state 60
+
+   40 condition: expr . NEQ expr
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+
+    ADD  shift, and go to state 63
+    SUB  shift, and go to state 64
+    NEQ  shift, and go to state 72
+
+
+state 61
+
+   28 assignment_stmt: ID ASSIGN expr . SEMI
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+
+    ADD   shift, and go to state 63
+    SUB   shift, and go to state 64
+    SEMI  shift, and go to state 73
+
+
+state 62
+
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+   49 factor: LB expr . RB
+
+    ADD  shift, and go to state 63
+    SUB  shift, and go to state 64
+    RB   shift, and go to state 74
+
+
+state 63
+
+   41 expr: expr ADD . term
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    term    go to state 75
+    factor  go to state 53
+
+
+state 64
+
+   42 expr: expr SUB . term
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    term    go to state 76
+    factor  go to state 53
+
+
+state 65
+
+   44 term: term MUL . factor
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    factor  go to state 77
+
+
+state 66
+
+   45 term: term DIV . factor
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    factor  go to state 78
+
+
+state 67
+
+   24 printf_stmt: PRINTF LB STRING RB . SEMI
+
+    SEMI  shift, and go to state 79
+
+
+state 68
+
+   25 printf_stmt: PRINTF LB STRING COMMA . expr RB SEMI
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    expr    go to state 80
+    term    go to state 52
+    factor  go to state 53
+
+
+state 69
+
+   26 scanf_stmt: SCANF LB STRING COMMA . ADDRESS ID RB SEMI
+   27           | SCANF LB STRING COMMA . ADDRESS ID COMMA ADDRESS ID RB SEMI
+
+    ADDRESS  shift, and go to state 81
+
+
+state 70
+
+   29 switch_stmt: SWITCH LB ID RB . switch_block
+
+    CLB  shift, and go to state 82
+
+    switch_block  go to state 83
+
+
+state 71
+
+   38 if_stmt: IF LB condition RB . statement
+   39        | IF LB condition RB . statement ELSE statement
+
+    PRINTF  shift, and go to state 23
+    SCANF   shift, and go to state 24
+    SWITCH  shift, and go to state 25
+    RETURN  shift, and go to state 26
+    IF      shift, and go to state 27
+    SEMI    shift, and go to state 28
+    ID      shift, and go to state 30
+
+    statement        go to state 84
+    printf_stmt      go to state 32
+    scanf_stmt       go to state 33
+    assignment_stmt  go to state 34
+    switch_stmt      go to state 35
+    if_stmt          go to state 36
+
+
+state 72
+
+   40 condition: expr NEQ . expr
+
+    INT_NUM  shift, and go to state 47
+    LB       shift, and go to state 48
+    ID       shift, and go to state 49
+
+    expr    go to state 85
+    term    go to state 52
+    factor  go to state 53
+
+
+state 73
+
+   28 assignment_stmt: ID ASSIGN expr SEMI .
+
+    $default  reduce using rule 28 (assignment_stmt)
+
+
+state 74
+
+   49 factor: LB expr RB .
+
+    $default  reduce using rule 49 (factor)
+
+
+state 75
+
+   41 expr: expr ADD term .
+   44 term: term . MUL factor
+   45     | term . DIV factor
+
+    MUL  shift, and go to state 65
+    DIV  shift, and go to state 66
+
+    $default  reduce using rule 41 (expr)
+
+
+state 76
+
+   42 expr: expr SUB term .
+   44 term: term . MUL factor
+   45     | term . DIV factor
+
+    MUL  shift, and go to state 65
+    DIV  shift, and go to state 66
+
+    $default  reduce using rule 42 (expr)
+
+
+state 77
+
+   44 term: term MUL factor .
+
+    $default  reduce using rule 44 (term)
+
+
+state 78
+
+   45 term: term DIV factor .
+
+    $default  reduce using rule 45 (term)
+
+
+state 79
+
+   24 printf_stmt: PRINTF LB STRING RB SEMI .
+
+    $default  reduce using rule 24 (printf_stmt)
+
+
+state 80
+
+   25 printf_stmt: PRINTF LB STRING COMMA expr . RB SEMI
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+
+    ADD  shift, and go to state 63
+    SUB  shift, and go to state 64
+    RB   shift, and go to state 86
+
+
+state 81
+
+   26 scanf_stmt: SCANF LB STRING COMMA ADDRESS . ID RB SEMI
+   27           | SCANF LB STRING COMMA ADDRESS . ID COMMA ADDRESS ID RB SEMI
+
+    ID  shift, and go to state 87
+
+
+state 82
+
+   30 switch_block: CLB . switch_items CRB
+
+    $default  reduce using rule 31 (switch_items)
+
+    switch_items  go to state 88
+
+
+state 83
+
+   29 switch_stmt: SWITCH LB ID RB switch_block .
+
+    $default  reduce using rule 29 (switch_stmt)
+
+
+state 84
+
+   38 if_stmt: IF LB condition RB statement .
+   39        | IF LB condition RB statement . ELSE statement
+
+    ELSE  shift, and go to state 89
+
+    $default  reduce using rule 38 (if_stmt)
+
+
+state 85
+
+   40 condition: expr NEQ expr .
+   41 expr: expr . ADD term
+   42     | expr . SUB term
+
+    ADD  shift, and go to state 63
+    SUB  shift, and go to state 64
+
+    $default  reduce using rule 40 (condition)
+
+
+state 86
+
+   25 printf_stmt: PRINTF LB STRING COMMA expr RB . SEMI
+
+    SEMI  shift, and go to state 90
+
+
+state 87
+
+   26 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID . RB SEMI
+   27           | SCANF LB STRING COMMA ADDRESS ID . COMMA ADDRESS ID RB SEMI
+
+    RB     shift, and go to state 91
+    COMMA  shift, and go to state 92
+
+
+state 88
+
+   30 switch_block: CLB switch_items . CRB
+   32 switch_items: switch_items . case_block
+   33             | switch_items . default_block
+
+    CASE     shift, and go to state 93
+    DEFAULT  shift, and go to state 94
+    CRB      shift, and go to state 95
+
+    case_block     go to state 96
+    default_block  go to state 97
+
+
+state 89
+
+   39 if_stmt: IF LB condition RB statement ELSE . statement
+
+    PRINTF  shift, and go to state 23
+    SCANF   shift, and go to state 24
+    SWITCH  shift, and go to state 25
+    RETURN  shift, and go to state 26
+    IF      shift, and go to state 27
+    SEMI    shift, and go to state 28
+    ID      shift, and go to state 30
+
+    statement        go to state 98
+    printf_stmt      go to state 32
+    scanf_stmt       go to state 33
+    assignment_stmt  go to state 34
+    switch_stmt      go to state 35
+    if_stmt          go to state 36
+
+
+state 90
+
+   25 printf_stmt: PRINTF LB STRING COMMA expr RB SEMI .
+
+    $default  reduce using rule 25 (printf_stmt)
+
+
+state 91
+
+   26 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID RB . SEMI
+
+    SEMI  shift, and go to state 99
+
+
+state 92
+
+   27 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID COMMA . ADDRESS ID RB SEMI
+
+    ADDRESS  shift, and go to state 100
+
+
+state 93
+
+   34 case_block: CASE . CHAR_LITERAL COLON case_body
+   35           | CASE . INT_NUM COLON case_body
+
+    INT_NUM       shift, and go to state 101
+    CHAR_LITERAL  shift, and go to state 102
+
+
+state 94
+
+   37 default_block: DEFAULT . COLON stmt_list
+
+    COLON  shift, and go to state 103
+
+
+state 95
+
+   30 switch_block: CLB switch_items CRB .
+
+    $default  reduce using rule 30 (switch_block)
+
+
+state 96
+
+   32 switch_items: switch_items case_block .
+
+    $default  reduce using rule 32 (switch_items)
+
+
+state 97
+
+   33 switch_items: switch_items default_block .
+
+    $default  reduce using rule 33 (switch_items)
+
+
+state 98
+
+   39 if_stmt: IF LB condition RB statement ELSE statement .
+
+    $default  reduce using rule 39 (if_stmt)
+
+
+state 99
+
+   26 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID RB SEMI .
+
+    $default  reduce using rule 26 (scanf_stmt)
+
+
+state 100
+
+   27 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID COMMA ADDRESS . ID RB SEMI
+
+    ID  shift, and go to state 104
+
+
+state 101
+
+   35 case_block: CASE INT_NUM . COLON case_body
+
+    COLON  shift, and go to state 105
+
+
+state 102
+
+   34 case_block: CASE CHAR_LITERAL . COLON case_body
+
+    COLON  shift, and go to state 106
+
+
+state 103
+
+   37 default_block: DEFAULT COLON . stmt_list
+
+    $default  reduce using rule 15 (stmt_list)
+
+    stmt_list  go to state 107
+
+
+state 104
+
+   27 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID COMMA ADDRESS ID . RB SEMI
+
+    RB  shift, and go to state 108
+
+
+state 105
+
+   35 case_block: CASE INT_NUM COLON . case_body
+
+    $default  reduce using rule 15 (stmt_list)
+
+    stmt_list  go to state 109
+    case_body  go to state 110
+
+
+state 106
+
+   34 case_block: CASE CHAR_LITERAL COLON . case_body
+
+    $default  reduce using rule 15 (stmt_list)
+
+    stmt_list  go to state 109
+    case_body  go to state 111
+
+
+state 107
+
+   16 stmt_list: stmt_list . statement
+   37 default_block: DEFAULT COLON stmt_list .
+
+    PRINTF  shift, and go to state 23
+    SCANF   shift, and go to state 24
+    SWITCH  shift, and go to state 25
+    RETURN  shift, and go to state 26
+    IF      shift, and go to state 27
+    SEMI    shift, and go to state 28
+    ID      shift, and go to state 30
+
+    $default  reduce using rule 37 (default_block)
+
+    statement        go to state 31
+    printf_stmt      go to state 32
+    scanf_stmt       go to state 33
+    assignment_stmt  go to state 34
+    switch_stmt      go to state 35
+    if_stmt          go to state 36
+
+
+state 108
+
+   27 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID COMMA ADDRESS ID RB . SEMI
+
+    SEMI  shift, and go to state 112
+
+
+state 109
+
+   16 stmt_list: stmt_list . statement
+   36 case_body: stmt_list . BREAK SEMI
+
+    PRINTF  shift, and go to state 23
+    SCANF   shift, and go to state 24
+    SWITCH  shift, and go to state 25
+    BREAK   shift, and go to state 113
+    RETURN  shift, and go to state 26
+    IF      shift, and go to state 27
+    SEMI    shift, and go to state 28
+    ID      shift, and go to state 30
+
+    statement        go to state 31
+    printf_stmt      go to state 32
+    scanf_stmt       go to state 33
+    assignment_stmt  go to state 34
+    switch_stmt      go to state 35
+    if_stmt          go to state 36
+
+
+state 110
+
+   35 case_block: CASE INT_NUM COLON case_body .
+
+    $default  reduce using rule 35 (case_block)
+
+
+state 111
+
+   34 case_block: CASE CHAR_LITERAL COLON case_body .
+
+    $default  reduce using rule 34 (case_block)
+
+
+state 112
+
+   27 scanf_stmt: SCANF LB STRING COMMA ADDRESS ID COMMA ADDRESS ID RB SEMI .
+
+    $default  reduce using rule 27 (scanf_stmt)
+
+
+state 113
+
+   36 case_body: stmt_list BREAK . SEMI
+
+    SEMI  shift, and go to state 114
+
+
+state 114
+
+   36 case_body: stmt_list BREAK SEMI .
+
+    $default  reduce using rule 36 (case_body)
