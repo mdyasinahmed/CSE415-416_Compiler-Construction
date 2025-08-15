@@ -14,6 +14,6 @@
 |    7    | Parsing                                    | 09-07-2025 |
 |    8    | Parsing Task                               | 16-07-2025 |
 |    9    | Parsing Viva                               | 23-07-2025 |
-
+|    10   | Semantic Analysis                          | 29-07-2025 |
 
 
